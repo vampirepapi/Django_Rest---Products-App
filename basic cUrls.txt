@@ -1,0 +1,28 @@
+#POST:-
+
+curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8000/api/product-items/ -d "{\"product_name\":\"dove\",\"product_price\":\"60\",\"product_quantity\":\"1\"}"
+
+#GET:-
+
+curl -X GET http://127.0.0.1:8000/api/product-items/
+
+{pretty print}
+
+curl -X GET http://127.0.0.1:8000/api/product-items/ | python -m json.tool
+
+{GET item using id}
+curl -X GET http://127.0.0.1:8000/api/product-items/1 | python -m json.tool
+
+#PATCH:-
+
+curl -X PATCH http://127.0.0.1:8000/api/product-items/15 -H 'Content-Type: application/json' -d '{"product_quantity":6}'
+
+#DELETE:-
+
+curl -X "DELETE" http://127.0.0.1:8000/api/product-items/15
+
+
+curl http://127.0.0.1:8000/api/product-items/?product_price=41
+
+#Filter
+curl http://127.0.0.1:8000/api/product-items/?product_price=41 | python -m json.tool
